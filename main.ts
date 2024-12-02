@@ -17,7 +17,7 @@ const targetUuidList: string[] = [
 const targetUuidSet = new Set(targetUuidList.map((uuid) => uuid.toLowerCase()));
 
 export async function onOriginRequest(request: EW.IngressOriginRequest) {
-  // get our Akamai Account Protector header, it it exists
+  // get our Akamai Account Protector header, if it exists null otherwise.
   const aprHeader = request.getHeader(APR_HEADER_NAME)?.[0]?.toLowerCase();
 
   try {

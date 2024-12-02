@@ -1,6 +1,6 @@
 {
   "name": "ew-apr-header-rewrite",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Set score=0 in APR header going to origin for certain uuids",
   "main": "index.js",
   "config": {

@@ -13,19 +13,20 @@ const targetUuidList: string[] = [
   "12345678-1234-1234-1234-123456789abc",
 ];
 
-// convert our list to a set. It automatically makes the list unique and is faster it the list is long.
+// convert our list to a set. It automatically makes the list unique and is faster if the list is long.
 const targetUuidSet = new Set(targetUuidList.map((uuid) => uuid.toLowerCase()));
 
 export async function onOriginRequest(request: EW.IngressOriginRequest) {
-  // get our Akamai Account Protector header, if it exists null otherwise.
+  // get our Akamai Account Protector header, if it exists, null otherwise.
   const aprHeader = request.getHeader(APR_HEADER_NAME)?.[0]?.toLowerCase();
 
+  // a try block so if anything goes wrong just log a message, that's it.
   try {
     if (aprHeader) {
       for (const targetUuid of targetUuidSet) {
         // check if uuid exists in request going to origin
         if (aprHeader.includes(targetUuid)) {
-          // if we have a match on uuid, set the score to 0 and set header again.
+          // if we have a match on uuid, set the score to 0 and set header again and get out of here.
           const newAprHeader = aprHeader.replace(/score=\d+/, "score=0");
           request.setHeader(APR_HEADER_NAME, newAprHeader);
 

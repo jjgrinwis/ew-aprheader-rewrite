@@ -13,7 +13,7 @@ const targetUuidList: string[] = [
   "12345678-1234-1234-1234-123456789abc",
 ];
 
-// convert our list to a set. If automatically makes the list unique and is faster it the list is long.
+// convert our list to a set. It automatically makes the list unique and is faster it the list is long.
 const targetUuidSet = new Set(targetUuidList.map((uuid) => uuid.toLowerCase()));
 
 export async function onOriginRequest(request: EW.IngressOriginRequest) {
@@ -29,7 +29,7 @@ export async function onOriginRequest(request: EW.IngressOriginRequest) {
           const newAprHeader = aprHeader.replace(/score=\d+/, "score=0");
           request.setHeader(APR_HEADER_NAME, newAprHeader);
 
-          // no need to go over the whole set if we have a match
+          // no need to go over the whole set if we have a match, just get out of here.
           break;
         }
       }

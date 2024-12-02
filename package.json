@@ -6,7 +6,7 @@
   "config": {
     "ewid": "91820",
     "edgerc_section": "betajam",
-    "description": "Set score=0 in APR header going to origin for certain uuids",
+    "description": "Set score=0 in APR header going to origin when allow=1",
     "ew_name": "ew-apr-header-rewrite",
     "tier": "200",
     "ew_group_id": "48668"

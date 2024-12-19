@@ -9,8 +9,9 @@ import { logger } from "log";
 const APR_HEADER_NAME = "Akamai-User-Risk";
 
 const targetUuidList: string[] = [
-  "86b37525-8047-4a3c-8d7a-23e99901da05",
-  "12345678-1234-1234-1234-123456789abc",
+  "25a35027-980c-4c70-948f-cbea1fac5cf1",
+  "e5d06b0d-ef2e-48f7-a4ff-34a3aa64d8b1",
+  "f5c63c62-e1bf-4e0c-a5cd-dbc0529eb35d",
 ];
 
 // convert our list to a set. It automatically makes the list unique and is faster if the list is long.
